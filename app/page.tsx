@@ -1,69 +1,452 @@
-import Image from "next/image";
+import type { SVGProps } from "react";
+
+type BrandIconProps = SVGProps<SVGSVGElement> & { size?: number };
+
+function GitHubIcon({ size = 16, ...props }: BrandIconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.11-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14 0 1.54-.01 2.78-.01 3.16 0 .3.2.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+    </svg>
+  );
+}
+
+function YouTubeIcon({ size = 16, ...props }: BrandIconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z" />
+    </svg>
+  );
+}
+
+function XIcon({ size = 16, ...props }: BrandIconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ size = 16, ...props }: BrandIconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z" />
+    </svg>
+  );
+}
+
+const socials = [
+  {
+    name: "GitHub",
+    href: "https://github.com/SerdarAbali",
+    icon: GitHubIcon,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/serdar-abali/",
+    icon: LinkedInIcon,
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com/@serdar-abali",
+    icon: YouTubeIcon,
+  },
+  {
+    name: "X",
+    href: "https://x.com/serdar_abali",
+    icon: XIcon,
+  },
+] as const;
+
+const specs = [
+  { index: "01", label: "HARDWARE", detail: "Off-Road Platforms · Tactical Mounts · Custom Fabrication" },
+  {
+    index: "02",
+    label: "AUTONOMY",
+    detail: "Edge Perception · Sensor Fusion · Motion Control · Field Autonomy",
+  },
+  {
+    index: "03",
+    label: "EXECUTION",
+    detail: "Mechanical Design to Embedded Code to Hardware Integration",
+  },
+] as const;
+
+const projects = [
+  {
+    index: "01",
+    title: "Outdoor Wilderness UGVs",
+    tags: ["ROS2", "Nav2", "Articulated Steering", "Heavy Terrain"],
+    summary:
+      "Custom articulated-steering chassis built for off-road terrain, validated through heavy field testing. Runs a full ROS2/Nav2 autonomy stack, documented as an open-source DIY UGV series.",
+    href: "https://youtube.com/@serdar-abali",
+    linkLabel: "Video",
+  },
+  {
+    index: "02",
+    title: "Defense Hackathon Targeting Turret — 2nd Place",
+    tags: ["bot6", "Autonomous Mount", "Target Acquisition"],
+    summary:
+      "Autonomous targeting turret with an integrated weapon mount, prototyped and field-tested in a 48-hour defense hackathon. Placed 2nd, built end-to-end with teammate Lauri.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+  },
+  {
+    index: "03",
+    title: "Low-Cost Custom PTZ Camera System",
+    tags: ["Raspberry Pi Zero 2 W", "Steppers", "3D Printed"],
+    summary:
+      "150mm pan-tilt camera head driven by dual 28BYJ-48 stepper motors on a Raspberry Pi Zero 2 W. Designed as a low-cost alternative to commercial PTZ units for large mobile robots.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+  },
+  {
+    index: "04",
+    title: "Physical Winamp Hardware Revival",
+    tags: ["Embedded Systems", "Custom UI", "Hardware Prototyping"],
+    summary:
+      "Hardware recreation of the classic media player with a custom enclosure and physical controls. Rebuilt the full embedded architecture and interface from the board up.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+  },
+  {
+    index: "05",
+    title: "Autonomous Indoor Mobile Platforms",
+    tags: ["DiffBot", "ROS2", "Custom Drivers"],
+    summary:
+      "Indoor mobile platforms on the DiffBot architecture with custom motor drivers and sensor fusion. Ships with in-house ROS2 drivers and navigation tuned for indoor deployment.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+  },
+  {
+    index: "06",
+    title: "Myoelectric Bionic Hand v1",
+    tags: ["Myo Sensors", "Signal Processing", "Biomechanics"],
+    summary:
+      "Prosthetic hand controlled through muscle-signal processing from myoelectric sensors. Early full-stack build spanning CAD, embedded firmware and signal conditioning.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+  },
+] as const;
+
+const toolchain = [
+  {
+    title: "HARDWARE",
+    tools: ["Custom Electronics", "Motor Control", "3D Printing", "Actuators"],
+  },
+  {
+    title: "SOFTWARE",
+    tools: [
+      "Embedded C/C++",
+      "Real-Time Systems",
+      "Control Algorithms",
+      "System Scripts",
+      "Linux Environment"
+    ],
+  },
+  {
+    title: "COMPUTE & SENSORS",
+    tools: [
+      "Edge Compute",
+      "LiDAR Systems",
+      "IMU / Inertial",
+      "GNSS / RTK",
+      "Biomedical Sensing"
+    ],
+  },
+] as const;
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <>
+      {/* Header */}
+      <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#0f0f11]/80 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#top"
+            className="font-mono text-sm font-semibold tracking-[0.25em] text-zinc-200"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            SERDAR ABALI
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <nav
+            className="flex items-center gap-6 font-mono text-xs text-zinc-500"
+            aria-label="Social"
           >
-            Documentation
-          </a>
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-zinc-200"
+              >
+                [{social.name}]
+              </a>
+            ))}
+          </nav>
         </div>
+      </header>
+
+      <main id="top">
+        {/* Hero / Identity */}
+        <section className="relative overflow-hidden border-b border-zinc-800/80">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_60%,transparent_100%)]"
+          />
+
+          <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+              <div>
+                <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">
+                  Helsinki Area
+                </p>
+
+                <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[0.95] tracking-tighter text-zinc-100 sm:text-6xl lg:text-7xl">
+                  Full-Stack
+                  <br />
+                  Robotics &amp;
+                  <br />
+                  Mechatronics
+                </h1>
+
+                <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400">
+                  Designing and deploying complete hardware-to-code platforms, custom
+                  CAD, motor controllers, and autonomy.
+                </p>
+              </div>
+
+              {/* Image placeholder */}
+              <div className="relative aspect-square overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40 lg:aspect-auto lg:h-full lg:min-h-[420px]">
+                <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/50 via-zinc-900/30 to-transparent" />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-mono text-xs tracking-[0.3em] text-zinc-500">
+                    [IMAGE]
+                  </span>
+                </div>
+                <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.25em] text-zinc-600">
+                  SYSTEM RENDER
+                </span>
+              </div>
+            </div>
+
+            <dl className="mt-16 grid gap-8 border-t border-zinc-800 pt-8 sm:grid-cols-3 sm:gap-6">
+              {specs.map((spec) => (
+                <div key={spec.index}>
+                  <dt className="font-mono text-sm tracking-wider">
+                    <span className="text-zinc-500">{spec.index}</span>
+                    <span className="text-zinc-400"> / </span>
+                    <span className="text-zinc-200">{spec.label}</span>
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-zinc-400">
+                    {spec.detail}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* Projects dossier */}
+        <section className="border-b border-zinc-800/80">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+            <div className="flex items-baseline justify-between gap-6">
+              <div>
+                <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">
+                  Dossier
+                </p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+                  PROJECTS
+                </h2>
+              </div>
+              <p className="hidden font-mono text-xs text-zinc-500 sm:block">
+                {projects.length} systems on record
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 sm:grid-cols-2">
+              {projects.map((project) => (
+                <article
+                  key={project.index}
+                  className="group flex flex-col overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40 transition-colors hover:border-zinc-700"
+                >
+                  <div className="relative aspect-video overflow-hidden border-b border-zinc-800">
+                    <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/50 via-zinc-900/30 to-transparent" />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"
+                    />
+                    <span className="absolute bottom-3 left-4 font-mono text-xs tracking-[0.25em] text-zinc-500">
+                      {project.index}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="text-lg font-semibold tracking-tight text-zinc-100">
+                      {project.title}
+                    </h3>
+
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded border border-zinc-800 bg-zinc-900 px-2 py-0.5 font-mono text-[11px] text-zinc-400"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-400">
+                      {project.summary}
+                    </p>
+
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-zinc-300 transition-colors hover:text-zinc-100"
+                    >
+                      [{project.linkLabel}] <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Toolchain */}
+        <section className="border-b border-zinc-800/80">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">
+              Toolchain
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+              TECHNICAL STACK
+            </h2>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {toolchain.map((category) => (
+                <div
+                  key={category.title}
+                  className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-6"
+                >
+                  <h3 className="font-mono text-sm font-semibold tracking-[0.2em] text-zinc-200">
+                    {category.title}
+                  </h3>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {category.tools.map((tool) => (
+                      <li
+                        key={tool}
+                        className="rounded border border-zinc-800 bg-zinc-900 px-3 py-1.5 font-mono text-xs text-zinc-400 transition-colors hover:border-zinc-700 hover:text-zinc-200"
+                      >
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+
+      {/* Contact footer */}
+      <footer className="border-t border-zinc-800/80">
+        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">
+            Communication
+          </p>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">
+            DIRECT SIGNAL
+          </h2>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://x.com/serdar_abali"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded border border-zinc-800 bg-zinc-900/40 px-5 py-3 font-mono text-xs tracking-wider text-zinc-200 transition-colors hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-100"
+            >
+              [ REACH OUT VIA X DM ]
+            </a>
+            <a
+              href="https://github.com/SerdarAbali"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded border border-zinc-800 bg-zinc-900/40 px-5 py-3 font-mono text-xs tracking-wider text-zinc-200 transition-colors hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-100"
+            >
+              [ OPEN GITHUB DISCUSSIONS ]
+            </a>
+            <a
+              href="https://www.linkedin.com/in/serdar-abali/"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded border border-zinc-800 bg-zinc-900/40 px-4 py-3 font-mono text-xs text-zinc-300 transition-colors hover:border-zinc-700 hover:text-zinc-100"
+            >
+              [ CONNECT ON LINKEDIN ]
+            </a>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-zinc-800 pt-8">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+              >
+                <social.icon size={14} />
+                {social.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="border-t border-zinc-800/80">
+          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="font-mono text-xs text-zinc-500">
+              © {new Date().getFullYear()} SERDAR ABALI
+            </p>
+            <p className="font-mono text-xs text-zinc-600">
+              Kova Robotics · Helsinki, Finland
+            </p>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
