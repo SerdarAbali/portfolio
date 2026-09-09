@@ -11,6 +11,7 @@ export type ProjectCardData = {
   href: string;
   linkLabel: string;
   images: readonly string[];
+  credit?: { text: string; href: string; label: string };
 };
 
 export function ProjectCard({ project }: { project: ProjectCardData }) {
@@ -94,6 +95,20 @@ export function ProjectCard({ project }: { project: ProjectCardData }) {
         <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-400">
           {project.summary}
         </p>
+
+        {project.credit && (
+          <p className="mt-4 border-t border-zinc-800/70 pt-3 font-mono text-[11px] leading-relaxed text-zinc-500">
+            {project.credit.text}{" "}
+            <a
+              href={project.credit.href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-400 underline decoration-zinc-700 underline-offset-2 transition-colors hover:text-zinc-200"
+            >
+              {project.credit.label}
+            </a>
+          </p>
+        )}
       </div>
     </article>
   );

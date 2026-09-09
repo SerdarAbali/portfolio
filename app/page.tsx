@@ -104,9 +104,8 @@ const projects = [
   {
     index: "01",
     title: "Bot 4",
-    tags: ["TBD"],
-    summary:
-      "Sample text — replace with build details, hardware specs, and outcomes.",
+    tags: ["ROS 1", "LiDAR", "Stereo Camera"],
+    summary: "4x4 small-size autonomous outdoor robot.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -119,9 +118,8 @@ const projects = [
   {
     index: "02",
     title: "Bot 5",
-    tags: ["TBD"],
-    summary:
-      "Sample text — replace with build details, hardware specs, and outcomes.",
+    tags: ["ROS 1", "LiDAR", "Wheel Odometry", "IMU"],
+    summary: "Fully autonomous SLAM robot for indoor logistics — 2WD.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -134,9 +132,9 @@ const projects = [
   {
     index: "03",
     title: "Bot 6",
-    tags: ["TBD"],
+    tags: ["RF", "WiFi", "SBC", "ROS2", "5G", "Teleop"],
     summary:
-      "Sample text — replace with build details, hardware specs, and outcomes.",
+      "Articulated-steered (hydraulic) 4x4 outdoor UGV for harsh environments. 600 kg cargo and tow capacity, with snow-plow attachment and defense-module support.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -147,9 +145,9 @@ const projects = [
   {
     index: "04",
     title: "Bot 6.5",
-    tags: ["TBD"],
+    tags: ["ROS2", "LiDAR", "IMU", "Wheel Odom", "GPS", "5G"],
     summary:
-      "Sample text — replace with build details, hardware specs, and outcomes.",
+      "Outdoor research UGV for harsh environments with a special air-conditioned electronics enclosure. Articulated-steered (hydraulic) 2x4.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -204,13 +202,21 @@ const projects = [
   },
   {
     index: "08",
-    title: "Physical Winamp Hardware Revival",
+    title: "Physical Winamp Hardware Revival (in process)",
     tags: ["Embedded Systems", "Custom UI", "Hardware Prototyping"],
     summary:
       "Hardware recreation of the classic media player with a custom enclosure and physical controls. Rebuilt the full embedded architecture and interface from the board up.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
-    images: [],
+    images: [
+      "/images/hero/projects/winamp/cover.jpg",
+      "/images/hero/projects/winamp/01.jpg",
+    ],
+    credit: {
+      text: "3D render designed by",
+      href: "https://x.com/rickgude",
+      label: "@rickgude",
+    },
   },
 ] as const;
 
@@ -309,7 +315,8 @@ export default function Home() {
                   alt="Serdar Abali working on an autonomous robot"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-zinc-950/45" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.25em] text-zinc-300">
                   FIELD WORK
                 </span>
