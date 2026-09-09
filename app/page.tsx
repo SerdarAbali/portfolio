@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import { ProjectCard } from "@/components/project-card";
 
 type BrandIconProps = SVGProps<SVGSVGElement> & { size?: number };
 
@@ -102,57 +103,114 @@ const specs = [
 const projects = [
   {
     index: "01",
-    title: "Outdoor Wilderness UGVs",
-    tags: ["ROS2", "Nav2", "Articulated Steering", "Heavy Terrain"],
+    title: "Bot 4",
+    tags: ["TBD"],
     summary:
-      "Custom articulated-steering chassis built for off-road terrain, validated through heavy field testing. Runs a full ROS2/Nav2 autonomy stack, documented as an open-source DIY UGV series.",
-    href: "https://youtube.com/@serdar-abali",
-    linkLabel: "Video",
+      "Sample text — replace with build details, hardware specs, and outcomes.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+    images: [
+      "/images/hero/projects/Bot4/02.jpg",
+      "/images/hero/projects/Bot4/cover.jpg",
+      "/images/hero/projects/Bot4/01.jpg",
+      "/images/hero/projects/Bot4/03.jpg",
+    ],
   },
   {
     index: "02",
+    title: "Bot 5",
+    tags: ["TBD"],
+    summary:
+      "Sample text — replace with build details, hardware specs, and outcomes.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+    images: [
+      "/images/hero/projects/Bot5/cover.jpg",
+      "/images/hero/projects/Bot5/01.jpg",
+      "/images/hero/projects/Bot5/02.jpg",
+      "/images/hero/projects/Bot5/03.jpg",
+    ],
+  },
+  {
+    index: "03",
+    title: "Bot 6",
+    tags: ["TBD"],
+    summary:
+      "Sample text — replace with build details, hardware specs, and outcomes.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+    images: [
+      "/images/hero/projects/bot6/cover.jpg",
+      "/images/hero/projects/bot6/01.jpg",
+    ],
+  },
+  {
+    index: "04",
+    title: "Bot 6.5",
+    tags: ["TBD"],
+    summary:
+      "Sample text — replace with build details, hardware specs, and outcomes.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+    images: [
+      "/images/hero/projects/bot6.5/cover.jpg",
+      "/images/hero/projects/bot6.5/01.jpg",
+      "/images/hero/projects/bot6.5/02.jpg",
+      "/images/hero/projects/bot6.5/03.jpg",
+    ],
+  },
+  {
+    index: "05",
     title: "Defense Hackathon Targeting Turret — 2nd Place",
-    tags: ["bot6", "Autonomous Mount", "Target Acquisition"],
+    tags: ["UGV Integration", "Target Acquisition", "ROS2"],
     summary:
       "Autonomous targeting turret with an integrated weapon mount, prototyped and field-tested in a 48-hour defense hackathon. Placed 2nd, built end-to-end with teammate Lauri.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
+    images: [
+      "/images/hero/projects/turret/cover.jpg",
+      "/images/hero/projects/turret/01.jpg",
+    ],
   },
   {
-    index: "03",
+    index: "06",
     title: "Low-Cost Custom PTZ Camera System",
     tags: ["Raspberry Pi Zero 2 W", "Steppers", "3D Printed"],
     summary:
       "150mm pan-tilt camera head driven by dual 28BYJ-48 stepper motors on a Raspberry Pi Zero 2 W. Designed as a low-cost alternative to commercial PTZ units for large mobile robots.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
+    images: [
+      "/images/hero/projects/pantilt/cover.jpg",
+      "/images/hero/projects/pantilt/01.jpg",
+      "/images/hero/projects/pantilt/02.jpg",
+      "/images/hero/projects/pantilt/03.jpg",
+      "/images/hero/projects/pantilt/04.jpg",
+    ],
   },
   {
-    index: "04",
-    title: "Physical Winamp Hardware Revival",
-    tags: ["Embedded Systems", "Custom UI", "Hardware Prototyping"],
-    summary:
-      "Hardware recreation of the classic media player with a custom enclosure and physical controls. Rebuilt the full embedded architecture and interface from the board up.",
-    href: "https://github.com/SerdarAbali",
-    linkLabel: "Code",
-  },
-  {
-    index: "05",
-    title: "Autonomous Indoor Mobile Platforms",
-    tags: ["DiffBot", "ROS2", "Custom Drivers"],
-    summary:
-      "Indoor mobile platforms on the DiffBot architecture with custom motor drivers and sensor fusion. Ships with in-house ROS2 drivers and navigation tuned for indoor deployment.",
-    href: "https://github.com/SerdarAbali",
-    linkLabel: "Code",
-  },
-  {
-    index: "06",
+    index: "07",
     title: "Myoelectric Bionic Hand v1",
     tags: ["Myo Sensors", "Signal Processing", "Biomechanics"],
     summary:
       "Prosthetic hand controlled through muscle-signal processing from myoelectric sensors. Early full-stack build spanning CAD, embedded firmware and signal conditioning.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
+    images: [
+      "/images/hero/projects/bionichand/cover.jpg",
+      "/images/hero/projects/bionichand/01.jpg",
+      "/images/hero/projects/bionichand/02.jpg",
+    ],
+  },
+  {
+    index: "08",
+    title: "Physical Winamp Hardware Revival",
+    tags: ["Embedded Systems", "Custom UI", "Hardware Prototyping"],
+    summary:
+      "Hardware recreation of the classic media player with a custom enclosure and physical controls. Rebuilt the full embedded architecture and interface from the board up.",
+    href: "https://github.com/SerdarAbali",
+    linkLabel: "Code",
+    images: [],
   },
 ] as const;
 
@@ -243,20 +301,17 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Image placeholder */}
+              {/* Hero image */}
               <div className="relative aspect-square overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40 lg:aspect-auto lg:h-full lg:min-h-[420px]">
-                <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/50 via-zinc-900/30 to-transparent" />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/hero/mainimage.jpg"
+                  alt="Serdar Abali working on an autonomous robot"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-mono text-xs tracking-[0.3em] text-zinc-500">
-                    [IMAGE]
-                  </span>
-                </div>
-                <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.25em] text-zinc-600">
-                  SYSTEM RENDER
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.25em] text-zinc-300">
+                  FIELD WORK
                 </span>
               </div>
             </div>
@@ -297,51 +352,7 @@ export default function Home() {
 
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {projects.map((project) => (
-                <article
-                  key={project.index}
-                  className="group flex flex-col overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40 transition-colors hover:border-zinc-700"
-                >
-                  <div className="relative aspect-video overflow-hidden border-b border-zinc-800">
-                    <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/50 via-zinc-900/30 to-transparent" />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"
-                    />
-                    <span className="absolute bottom-3 left-4 font-mono text-xs tracking-[0.25em] text-zinc-500">
-                      {project.index}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-lg font-semibold tracking-tight text-zinc-100">
-                      {project.title}
-                    </h3>
-
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded border border-zinc-800 bg-zinc-900 px-2 py-0.5 font-mono text-[11px] text-zinc-400"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-400">
-                      {project.summary}
-                    </p>
-
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-zinc-300 transition-colors hover:text-zinc-100"
-                    >
-                      [{project.linkLabel}] <span aria-hidden="true">→</span>
-                    </a>
-                  </div>
-                </article>
+                <ProjectCard key={project.index} project={project} />
               ))}
             </div>
           </div>
