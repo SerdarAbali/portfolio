@@ -104,8 +104,9 @@ const projects = [
   {
     index: "01",
     title: "Bot 4",
-    tags: ["ROS 1", "LiDAR", "Stereo Camera"],
-    summary: "4x4 small-size autonomous outdoor robot.",
+    tags: ["Outdoor", "Autonomous", "4×4", "Perception"],
+    summary:
+      "Compact 4×4 autonomous outdoor platform with onboard perception. Early full-stack mobile robot covering mechanical design, sensor integration, and autonomy software.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -118,8 +119,9 @@ const projects = [
   {
     index: "02",
     title: "Bot 5",
-    tags: ["ROS 1", "LiDAR", "Wheel Odometry", "IMU"],
-    summary: "Fully autonomous SLAM robot for indoor logistics — 2WD.",
+    tags: ["Indoor", "Autonomous", "SLAM", "Differential Drive"],
+    summary:
+      "Fully autonomous indoor differential-drive robot developed for logistics applications. Complete stack from custom chassis and drive system through localization, mapping, and navigation.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -132,9 +134,9 @@ const projects = [
   {
     index: "03",
     title: "Bot 6",
-    tags: ["RF", "WiFi", "SBC", "ROS2", "5G", "Teleop"],
+    tags: ["Outdoor", "Articulated", "Heavy-Duty", "Field Robotics"],
     summary:
-      "Articulated-steered (hydraulic) 4x4 outdoor UGV for harsh environments. 600 kg cargo and tow capacity, with snow-plow attachment and defense-module support.",
+      "Heavy-duty articulated-steered outdoor UGV built for harsh environments. Features high payload and tow capacity, modular attachments including snow plow and defense modules, plus full mechanical, electrical, and autonomy integration.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -145,9 +147,9 @@ const projects = [
   {
     index: "04",
     title: "Bot 6.5",
-    tags: ["ROS2", "LiDAR", "IMU", "Wheel Odom", "GPS", "5G"],
+    tags: ["Outdoor", "Articulated", "Research", "Environmental Hardening"],
     summary:
-      "Outdoor research UGV for harsh environments with a special air-conditioned electronics enclosure. Articulated-steered (hydraulic) 2x4.",
+      "Compact outdoor research UGV with articulated steering and a purpose-built climate-controlled electronics enclosure. Designed for reliable operation in demanding field conditions with full sensor and autonomy suite.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -159,10 +161,10 @@ const projects = [
   },
   {
     index: "05",
-    title: "Defense Hackathon Targeting Turret — 2nd Place",
-    tags: ["UGV Integration", "Target Acquisition", "ROS2"],
+    title: "Defense Hackathon Targeting Turret",
+    tags: ["Autonomous Targeting", "UGV Integration", "Rapid Prototyping"],
     summary:
-      "Autonomous targeting turret with an integrated weapon mount, prototyped and field-tested in a 48-hour defense hackathon. Placed 2nd, built end-to-end with teammate Lauri.",
+      "Autonomous targeting turret with weapon mount, designed and integrated onto a UGV platform during a 48-hour defense hackathon. Full end-to-end development of mechanics, sensing, and control. Achieved 2nd place with teammate Lauri.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -172,10 +174,10 @@ const projects = [
   },
   {
     index: "06",
-    title: "Low-Cost Custom PTZ Camera System",
-    tags: ["Raspberry Pi Zero 2 W", "Steppers", "3D Printed"],
+    title: "Custom PTZ Camera System",
+    tags: ["Pan-Tilt", "Embedded", "3D-Printed", "Low-Cost"],
     summary:
-      "150mm pan-tilt camera head driven by dual 28BYJ-48 stepper motors on a Raspberry Pi Zero 2 W. Designed as a low-cost alternative to commercial PTZ units for large mobile robots.",
+      "Compact pan-tilt camera system designed for large mobile robots. Fully custom mechanical design with dual-axis actuation and embedded control, created as a practical low-cost alternative to commercial units.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -189,9 +191,9 @@ const projects = [
   {
     index: "07",
     title: "Myoelectric Bionic Hand v1",
-    tags: ["Myo Sensors", "Signal Processing", "Biomechanics"],
+    tags: ["Prosthetic", "Myoelectric", "Embedded", "Full-Stack"],
     summary:
-      "Prosthetic hand controlled through muscle-signal processing from myoelectric sensors. Early full-stack build spanning CAD, embedded firmware and signal conditioning.",
+      "Myoelectric prosthetic hand controlled by muscle signals. Complete development cycle including mechanical design, custom electronics, embedded firmware, and real-time signal processing.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -202,21 +204,16 @@ const projects = [
   },
   {
     index: "08",
-    title: "Physical Winamp Hardware Revival (in process)",
-    tags: ["Embedded Systems", "Custom UI", "Hardware Prototyping"],
+    title: "Physical Winamp (in process)",
+    tags: ["Embedded Systems", "Custom Interface", "Hardware Prototyping"],
     summary:
-      "Hardware recreation of the classic media player with a custom enclosure and physical controls. Rebuilt the full embedded architecture and interface from the board up.",
+      "Hardware recreation of the classic media player with physical controls and custom enclosure. Full embedded architecture and user interface developed from the ground up. Currently being revived with a small team. (3D concept by Rick Gude)",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
       "/images/hero/projects/winamp/cover.jpg",
       "/images/hero/projects/winamp/01.jpg",
     ],
-    credit: {
-      text: "3D render designed by",
-      href: "https://x.com/rickgude",
-      label: "@rickgude",
-    },
   },
 ] as const;
 
@@ -298,7 +295,7 @@ export default function Home() {
                   <br />
                   Robotics &amp;
                   <br />
-                  Mechatronics
+                  Mechatronics Engineering
                 </h1>
 
                 <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400">
