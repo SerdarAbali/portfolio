@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://serdar.abali.fi";
-const SITE_TITLE = "Serdar Abali | Full-Stack Robotics Engineer";
+const SITE_TITLE = "Serdar Abali | Robotics Engineering Personal Portfolio";
 const SITE_DESCRIPTION =
   "Serdar Abali is a full-stack robotics engineer in Helsinki, Finland, building complete hardware-to-code platforms: ROS2 autonomy, UGV platforms, mechatronics, bionic prosthetics, custom CAD and PCB design.";
 

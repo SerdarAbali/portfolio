@@ -1,4 +1,6 @@
-import type { SVGProps } from "react";
+"use client";
+
+import { useEffect, useState, type SVGProps } from "react";
 import { ProjectCard } from "@/components/project-card";
 
 type BrandIconProps = SVGProps<SVGSVGElement> & { size?: number };
@@ -164,7 +166,7 @@ const projects = [
     title: "Defense Hackathon Targeting Turret",
     tags: ["Autonomous Targeting", "UGV Integration", "Rapid Prototyping"],
     summary:
-      "Autonomous targeting turret with weapon mount, designed and integrated onto a UGV platform during a 48-hour defense hackathon. Full end-to-end development of mechanics, sensing, and control. Achieved 2nd place with teammate Lauri.",
+      "Autonomous targeting turret with weapon mount, designed and integrated onto a UGV platform during a 48-hour defense hackathon. Full end-to-end development of mechanics, sensing, and control. Achieved 2nd place with team of 3.",
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
@@ -197,7 +199,6 @@ const projects = [
     href: "https://github.com/SerdarAbali",
     linkLabel: "Code",
     images: [
-      "/images/hero/projects/bionichand/cover.jpg",
       "/images/hero/projects/bionichand/01.jpg",
       "/images/hero/projects/bionichand/02.jpg",
     ],
@@ -244,7 +245,22 @@ const toolchain = [
   },
 ] as const;
 
+const HERO_IMAGES = [
+  "/images/hero/mainimage.jpg",
+  "/images/hero/mainimage_2.JPG",
+  "/images/hero/mainimage_3.jpg",
+] as const;
+
 export default function Home() {
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % HERO_IMAGES.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <>
       {/* Header */}
@@ -287,7 +303,7 @@ export default function Home() {
             <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">
-                  Helsinki Area
+                  Somewhere in the Helsinki Area
                 </p>
 
                 <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[0.95] tracking-tighter text-zinc-100 sm:text-6xl lg:text-7xl">
@@ -306,17 +322,32 @@ export default function Home() {
 
               {/* Hero image */}
               <div className="relative aspect-square overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40 lg:aspect-auto lg:h-full lg:min-h-[420px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/hero/mainimage.jpg"
-                  alt="Serdar Abali working on an autonomous robot"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
+                {HERO_IMAGES.map((src, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={src}
+                    src={src}
+                    alt="Serdar Abali working on an autonomous robot"
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+                      i === heroIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                ))}
                 <div className="pointer-events-none absolute inset-0 bg-zinc-950/45" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.25em] text-zinc-300">
                   FIELD WORK
                 </span>
+                <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
+                  {HERO_IMAGES.map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-1.5 rounded-full transition-all ${
+                        i === heroIndex ? "w-4 bg-zinc-200" : "w-1.5 bg-zinc-600"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -358,6 +389,47 @@ export default function Home() {
               {projects.map((project) => (
                 <ProjectCard key={project.index} project={project} />
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ODrive support */}
+        <section className="border-b border-zinc-800/80">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">
+              Support
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+              BACKED BY
+            </h2>
+
+            <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">
+              <p className="max-w-xl text-lg leading-relaxed text-zinc-300">
+                UGV projects are supported by{" "}
+                <a
+                  href="https://odriverobotics.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-zinc-100 underline decoration-zinc-600 underline-offset-4 transition-colors hover:decoration-zinc-400"
+                >
+                  ODrive Robotics
+                </a>
+                . My special thanks to Oskar.
+              </p>
+
+              <a
+                href="https://odriverobotics.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/40 p-8 transition-colors hover:border-zinc-700"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/hero/odrive_logo.svg"
+                  alt="ODrive Robotics"
+                  className="h-20 w-auto"
+                />
+              </a>
             </div>
           </div>
         </section>
